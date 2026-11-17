@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- アプリアイコンの元データ(1024x1024)。ホスト「花奈」の立ち絵(VRM モデルから書き出した画像)を使う。
+     書き出し方:ブラウザで 1024x1024 の範囲を画像にする(ios/design/README を参照) -->
+<html><head><meta charset="utf-8"><style>
+  html,body{ margin:0; }
+  #icon{ position:relative; width:1024px; height:1024px; overflow:hidden;
+         background:
+           radial-gradient(620px 520px at 50% 34%, #FFFFFF 0%, rgba(255,255,255,0) 70%),
+           linear-gradient(180deg, #F4F8FF 0%, #D6E4FA 100%); }
+  #face{ position:absolute; left:50%; top:VAR_TOPpx; width:VAR_WIDTHpx; transform:translateX(-50%); }
+  /* 下の帯:ゆるく上にふくらんだ形 */
+  #band{ position:absolute; left:-12%; right:-12%; bottom:-215px; height:420px; border-radius:50%;
+         background:linear-gradient(180deg, #2A3F9E 0%, #172466 100%); }
+  #label{ position:absolute; left:0; right:0; bottom:44px; text-align:center; color:#fff;
+          font:800 104px/1 -apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif; letter-spacing:10px; }
+  #label i{ display:inline-block; width:46px; height:46px; border-radius:50%; background:#FF4B4B; margin-right:26px; vertical-align:12px; }
+</style></head><body>
+<div id="icon">
+  <img id="face" src="VAR_IMG">
+  <div id="band"></div>
+  <div id="label"><i></i>LIVE</div>
+</div>
+</body></html>

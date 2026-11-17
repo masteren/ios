@@ -1,0 +1,11 @@
+import { chromium } from 'playwright-core';
+import fs from 'node:fs';
+const [src, out, img, width, top] = process.argv.slice(2);
+setTimeout(() => process.exit(2), 60000);
+const b = await chromium.launch({ channel: 'chrome', headless: true });
+const p = await b.newPage({ viewport: { width: 1024, height: 1400 }, deviceScaleFactor: 1 });
+const data = 'data:image/png;base64,' + fs.readFileSync(img).toString('base64');
+const html = fs.readFileSync(src, 'utf8').replace('VAR_IMG', data).replace('VAR_WIDTH', width).replace('VAR_TOP', top);
+await p.setContent(html); await p.waitForTimeout(500);
+await p.screenshot({ path: out, clip: { x: 0, y: 0, width: 1024, height: 1024 } });
+await b.close(); process.exit(0);

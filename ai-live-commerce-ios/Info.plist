@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 開発中はローカルの http サーバ(127.0.0.1 / LAN の IP)に接続するため許可。
+	     本番(HTTPS)ではこの設定は使われない(ATS は HTTPS を要求する) -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>開発用サーバ(同じネットワーク上の PC)に接続してライブ配信を表示します。</string>
+</dict>
+</plist>
